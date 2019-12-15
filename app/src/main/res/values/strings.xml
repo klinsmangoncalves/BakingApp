@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BakingApp</string>
+    <string name="title_activity_master_receipt_list">MasterReceiptList</string>
+    <string name="title_activity_step_detail">StepDetailActivity</string>
+</resources>
