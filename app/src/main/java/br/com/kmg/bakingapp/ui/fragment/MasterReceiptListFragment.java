@@ -1,5 +1,6 @@
 package br.com.kmg.bakingapp.ui.fragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +26,21 @@ public class MasterReceiptListFragment extends Fragment implements ReceiptStepAd
     private List<ReceiptStep> steps;
     private RecyclerView mRvIngredients;
     private RecyclerView mRvSteps;
+
+    private OnStepClickListener mListener;
+    public interface OnStepClickListener{
+        void onStepClickListener(ReceiptStep receiptStep);
+    }
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try{
+            mListener =(OnStepClickListener) context;
+        }catch (ClassCastException e){
+            e.printStackTrace();
+        }
+    }
 
     public MasterReceiptListFragment() {
 
@@ -74,6 +90,6 @@ public class MasterReceiptListFragment extends Fragment implements ReceiptStepAd
 
     @Override
     public void onReceiptStepClickListener(ReceiptStep receiptStep) {
-
+        mListener.onStepClickListener(receiptStep);
     }
 }
