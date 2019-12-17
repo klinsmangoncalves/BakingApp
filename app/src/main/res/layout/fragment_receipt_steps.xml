@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/backgroundPurple"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -9,6 +10,8 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:textStyle="bold"
+            android:textColor="#FFF"
             android:textSize="25sp"
             android:layout_marginTop="10dp"
             android:id="@+id/tv_ingredients"
@@ -27,6 +30,8 @@
         </RelativeLayout>
 
         <TextView
+            android:textStyle="bold"
+            android:textColor="#FFF"
             android:textSize="25sp"
             android:layout_marginTop="10dp"
             android:id="@+id/tv_receipt_steps"

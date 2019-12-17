@@ -57,7 +57,7 @@ public class MasterReceiptList extends AppCompatActivity implements MasterReceip
 
     @Override
     public void onStepClickListener(ReceiptStep receiptStep) {
-        if(true){
+        if(isTablet){
             setupReceiptDetail(receiptStep);
         } else {
             Intent intent = new Intent(this, StepDetailActivity.class);
