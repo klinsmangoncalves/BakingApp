@@ -11,9 +11,12 @@ import android.util.Log;
 
 import java.util.List;
 
+import br.com.kmg.bakingapp.BakingAppWidget;
 import br.com.kmg.bakingapp.R;
 import br.com.kmg.bakingapp.adapter.ReceiptAdapter;
+import br.com.kmg.bakingapp.model.Ingredient;
 import br.com.kmg.bakingapp.model.Receipt;
+import br.com.kmg.bakingapp.preferences.PreferencesManagerUtil;
 import br.com.kmg.bakingapp.service.RetrofitConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -83,9 +86,17 @@ public class MainActivity extends AppCompatActivity implements ReceiptAdapter.On
 
     @Override
     public void onReceiptClickListener(Receipt receipt) {
-        Log.d("CLICADOOOO", receipt.getName());
+        PreferencesManagerUtil.setPreference(this, BakingAppWidget.INGREDIENT_WIDGET_KEY, getIngredientsListString(receipt));
         Intent intent = new Intent(this, MasterReceiptList.class);
         intent.putExtra(RECEIPT_EXTRA, receipt);
         startActivity(intent);
+    }
+
+    private String getIngredientsListString(Receipt receipt) {
+        String str = "";
+        for (Ingredient i : receipt.getIngredients()) {
+            str+=i.getIngredient() + " - " + i.getQuantity() + i.getMeasure() + "\n";
+        }
+        return str;
     }
 }

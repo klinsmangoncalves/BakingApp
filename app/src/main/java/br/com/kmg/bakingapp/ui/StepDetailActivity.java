@@ -9,7 +9,6 @@ import androidx.fragment.app.FragmentManager;
 
 import br.com.kmg.bakingapp.R;
 import br.com.kmg.bakingapp.model.Receipt;
-import br.com.kmg.bakingapp.model.ReceiptStep;
 import br.com.kmg.bakingapp.ui.fragment.StepDetailFragment;
 
 public class StepDetailActivity extends AppCompatActivity {
@@ -20,6 +19,7 @@ public class StepDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.activity_step_detail);
+        setTitle("Receipt Steps");
 
         if(bundle != null && bundle.containsKey(MasterReceiptList.RECEIPT_STEP_EXTRA)
                 && bundle.containsKey(MasterReceiptList.STEP_POSITION_EXTRA)){
