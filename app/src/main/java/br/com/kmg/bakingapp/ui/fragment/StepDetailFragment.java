@@ -15,6 +15,7 @@ import br.com.kmg.bakingapp.model.ReceiptStep;
 
 public class StepDetailFragment extends Fragment {
 
+    private final String RECEIP_STEP_STATE = "receipt_step_key";
     private ReceiptStep receiptStep;
 
     public StepDetailFragment() {
@@ -26,6 +27,9 @@ public class StepDetailFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_step_detail, container, false);
         TextView tvShortName = view.findViewById(R.id.tv_short_name_step);
         TextView tvStepDescription = view.findViewById(R.id.tv_step_description);
+        if(savedInstanceState != null && savedInstanceState.containsKey(RECEIP_STEP_STATE)){
+            receiptStep = (ReceiptStep) savedInstanceState.getSerializable(RECEIP_STEP_STATE);
+        }
 
         tvShortName.setText(receiptStep.getShortDescription());
         tvStepDescription.setText(receiptStep.getDescription());
@@ -38,5 +42,11 @@ public class StepDetailFragment extends Fragment {
 
     public void setReceiptStep(ReceiptStep receiptStep) {
         this.receiptStep = receiptStep;
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(RECEIP_STEP_STATE, receiptStep);
     }
 }

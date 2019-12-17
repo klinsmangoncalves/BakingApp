@@ -29,7 +29,7 @@ public class MasterReceiptListFragment extends Fragment implements ReceiptStepAd
 
     private OnStepClickListener mListener;
     public interface OnStepClickListener{
-        void onStepClickListener(ReceiptStep receiptStep);
+        void onStepClickListener(ReceiptStep receiptStep, int position);
     }
 
     @Override
@@ -89,7 +89,7 @@ public class MasterReceiptListFragment extends Fragment implements ReceiptStepAd
     }
 
     @Override
-    public void onReceiptStepClickListener(ReceiptStep receiptStep) {
-        mListener.onStepClickListener(receiptStep);
+    public void onReceiptStepClickListener(ReceiptStep receiptStep, int position) {
+        mListener.onStepClickListener(receiptStep, position);
     }
 }

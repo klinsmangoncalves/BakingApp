@@ -20,7 +20,7 @@ public class ReceiptStepAdapter extends RecyclerView.Adapter<ReceiptStepAdapter.
     private final ReceiptStepAdapter.OnReceiptStepClickListener mReceiptStepClickListener;
 
     public interface OnReceiptStepClickListener {
-        void onReceiptStepClickListener(ReceiptStep receiptStep);
+        void onReceiptStepClickListener(ReceiptStep receiptStep, int position);
     }
 
     public ReceiptStepAdapter(List<ReceiptStep> receiptSteps, ReceiptStepAdapter.OnReceiptStepClickListener mReceiptStepClickListener) {
@@ -66,7 +66,7 @@ public class ReceiptStepAdapter extends RecyclerView.Adapter<ReceiptStepAdapter.
         public void onClick(View v) {
             int i = getAdapterPosition();
             ReceiptStep receiptStep = receiptSteps.get(i);
-            mReceiptStepClickListener.onReceiptStepClickListener(receiptStep);
+            mReceiptStepClickListener.onReceiptStepClickListener(receiptStep, i);
         }
     }
 }

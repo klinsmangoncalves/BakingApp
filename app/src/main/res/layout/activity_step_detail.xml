@@ -19,8 +19,9 @@
 
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/bt_back"
                 android:gravity="center"
+                android:onClick="btBackClick"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -29,7 +30,8 @@
 
             <Button
                 android:gravity="center"
-                android:id="@+id/button2"
+                android:id="@+id/bt_next"
+                android:onClick="btNextClick"
                 android:layout_gravity="center"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
