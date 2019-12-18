@@ -71,10 +71,6 @@ public class MainActivity extends AppCompatActivity implements ReceiptAdapter.On
             @Override
             public void onResponse(Call<List<Receipt>> call, Response<List<Receipt>> response) {
                 List<Receipt> list = response.body();
-
-                for (Receipt r : list){
-                    Log.d("RECEITA", r.getName());
-                }
                 setReceiptDataAdapter(list);
             }
 

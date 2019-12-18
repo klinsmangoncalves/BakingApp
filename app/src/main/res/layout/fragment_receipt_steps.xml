@@ -17,7 +17,7 @@
             android:id="@+id/tv_ingredients"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingredients:"
+            android:text="@string/ingredients"
             android:layout_gravity="center"/>
 
         <RelativeLayout
@@ -37,7 +37,7 @@
             android:id="@+id/tv_receipt_steps"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Steps:"
+            android:text="@string/steps"
             android:layout_gravity="center"/>
 
         <RelativeLayout
