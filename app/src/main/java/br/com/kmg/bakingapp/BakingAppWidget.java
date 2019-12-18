@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-import br.com.kmg.bakingapp.preferences.PreferencesManagerUtil;
 import br.com.kmg.bakingapp.ui.MainActivity;
 
 /**

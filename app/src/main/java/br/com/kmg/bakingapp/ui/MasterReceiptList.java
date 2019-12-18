@@ -28,6 +28,9 @@ public class MasterReceiptList extends AppCompatActivity implements MasterReceip
         fragmentManager = getSupportFragmentManager();
 
         Intent intent  = getIntent();
+        if(intent == null || !intent.hasExtra(MainActivity.RECEIPT_EXTRA)){
+            return;
+        }
         currentReceipt = (Receipt) intent.getSerializableExtra(MainActivity.RECEIPT_EXTRA);
         setupMasterList(currentReceipt);
         setTitle(currentReceipt.getName());

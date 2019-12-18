@@ -18,7 +18,6 @@ import br.com.kmg.bakingapp.R;
 import br.com.kmg.bakingapp.adapter.ReceiptAdapter;
 import br.com.kmg.bakingapp.model.Ingredient;
 import br.com.kmg.bakingapp.model.Receipt;
-import br.com.kmg.bakingapp.preferences.PreferencesManagerUtil;
 import br.com.kmg.bakingapp.service.RetrofitConfig;
 import retrofit2.Call;
 import retrofit2.Callback;
