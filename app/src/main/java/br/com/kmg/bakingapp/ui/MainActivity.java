@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.appwidget.AppWidgetManager;
+import android.content.ComponentName;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -86,7 +88,8 @@ public class MainActivity extends AppCompatActivity implements ReceiptAdapter.On
 
     @Override
     public void onReceiptClickListener(Receipt receipt) {
-        PreferencesManagerUtil.setPreference(this, BakingAppWidget.INGREDIENT_WIDGET_KEY, getIngredientsListString(receipt));
+        int[] appWidgetIds = AppWidgetManager.getInstance(this).getAppWidgetIds(new ComponentName(this, BakingAppWidget.class));
+        BakingAppWidget.updateAllWidgets(this, AppWidgetManager.getInstance(this), appWidgetIds, getIngredientsListString(receipt));
         Intent intent = new Intent(this, MasterReceiptList.class);
         intent.putExtra(RECEIPT_EXTRA, receipt);
         startActivity(intent);

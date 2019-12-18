@@ -14,10 +14,9 @@ import br.com.kmg.bakingapp.ui.MainActivity;
  * Implementation of App Widget functionality.
  */
 public class BakingAppWidget extends AppWidgetProvider {
-    public static final String INGREDIENT_WIDGET_KEY = "ingredient_key";
 
     static void updateAppWidget(Context context, AppWidgetManager appWidgetManager,
-                                int appWidgetId) {
+                                int appWidgetId, String ingredientsData) {
 
         // Construct the RemoteViews object
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.baking_app_widget);
@@ -25,8 +24,10 @@ public class BakingAppWidget extends AppWidgetProvider {
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
         views.setOnClickPendingIntent(R.id.appwidget_text , pendingIntent);
-        String textPreference = PreferencesManagerUtil.getPreference(context, INGREDIENT_WIDGET_KEY, "Select a receipt to start cooking.");
-        views.setTextViewText(R.id.appwidget_text, textPreference);
+        if(ingredientsData != null){
+            views.setTextViewText(R.id.appwidget_text, ingredientsData);
+        }
+
 
         // Instruct the widget manager to update the widget
         appWidgetManager.updateAppWidget(appWidgetId, views);
@@ -35,8 +36,12 @@ public class BakingAppWidget extends AppWidgetProvider {
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
         // There may be multiple widgets active, so update all of them
+        updateAllWidgets(context, appWidgetManager, appWidgetIds, null);
+    }
+
+    public static void updateAllWidgets(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds, String ingredients){
         for (int appWidgetId : appWidgetIds) {
-            updateAppWidget(context, appWidgetManager, appWidgetId);
+            updateAppWidget(context, appWidgetManager, appWidgetId, ingredients);
         }
     }
 
